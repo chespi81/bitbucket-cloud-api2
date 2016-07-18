@@ -25,9 +25,13 @@
 
 package cl.tinet.devops.metrics.gen.bitbucket.model;
 
+import java.util.Date;
 import java.util.Objects;
+
 import cl.tinet.devops.metrics.gen.bitbucket.model.Account;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
@@ -78,7 +82,16 @@ public class Pullrequest extends Object  {
 
   @JsonProperty("title")
   private String title = null;
+  
+  @JsonProperty("source")
+  private PullrequestParticipant source;
 
+  @JsonProperty("destination")
+  private PullrequestParticipant destination;
+  
+  @JsonProperty("created_on")
+  private String createdOn;
+  
   public Pullrequest type(String type) {
     this.type = type;
     return this;
@@ -186,7 +199,45 @@ public class Pullrequest extends Object  {
   public void setTitle(String title) {
     this.title = title;
   }
+  
+	public PullrequestParticipant getSource() {
+		return source;
+	}
 
+	public void setSource(PullrequestParticipant source) {
+		this.source = source;
+	}
+	
+	public Pullrequest source(PullrequestParticipant src) {
+		setSource(src);
+		return this;
+	}
+
+	public PullrequestParticipant getDestination() {
+		return destination;
+	}
+
+	public void setDestination(PullrequestParticipant destination) {
+		this.destination = destination;
+	}
+	
+	public Pullrequest destination(PullrequestParticipant dest) {
+		setDestination(dest);
+		return this;
+	}
+	
+	public String getCreatedOn() {
+		return createdOn;
+	}
+	
+	public void setCreatedOn(String createdOn) {
+		this.createdOn = createdOn;
+	}
+	
+	public Pullrequest createdOn(String createdOn) {
+		setCreatedOn(createdOn);
+		return this;
+	}
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -222,6 +273,9 @@ public class Pullrequest extends Object  {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    links: ").append(toIndentedString(links)).append("\n");
     sb.append("    title: ").append(toIndentedString(title)).append("\n");
+    sb.append("    source: ").append(toIndentedString(source)).append("\n");
+    sb.append("    destination: ").append(toIndentedString(destination)).append("\n");
+    sb.append("    createdOn: ").append(toIndentedString(createdOn)).append("\n");
     sb.append("}");
     return sb.toString();
   }
